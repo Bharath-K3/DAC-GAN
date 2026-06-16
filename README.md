@@ -8,7 +8,7 @@
 ## Abstract
 
 Deep learning–based audio classification systems, including automatic speaker verification, are highly vulnerable to adversarial attacks. Realistic real-time threat assessment remains challenging because most gradient-based attacks, such as projected gradient descent (PGD) and Carlini–Wagner, require costly optimization in the high-dimensional waveform domain. Generative attacks enable single-shot generation but often introduce perceptible artifacts or rely on heavy architectures, while diffusion and autoregressive methods incur substantial inference overhead.
-To address this gap, we propose a generative attack framework operating in the continuous latent space of a neural audio codec. A conditional generator produces class-specific perturbations in a single forward pass and decodes them into adversarial waveforms. Our method achieves targeted attack success rates above $77\%$ (up to $99\%$) with sub-$7$\,ms inference, outperforming generative baselines while reducing latency by $24\times$.
+To address this gap, we propose a generative attack framework operating in the continuous latent space of a neural audio codec. A conditional generator produces class-specific perturbations in a single forward pass and decodes them into adversarial waveforms. Our method achieves targeted attack success rates above $77\%$ (up to $99\%$) with sub-7 ms inference, outperforming generative baselines while reducing latency by $24\times$.
 
 ---
 
