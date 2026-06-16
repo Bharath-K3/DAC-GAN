@@ -47,20 +47,6 @@ $$x_{adv} = D_{DAC}(z_{adv})$$
 Because modern audio classifiers predominantly operate on frequency-domain features, we formulate a fully differentiable preprocessor $\mathcal{P}$. This module executes a Short-Time Fourier Transform (STFT), Mel-scale filterbank mapping, and logarithmic compression while preserving the computational graph. The resulting spectral feature map bridging the codec to the classifier is:
 $$S_{adv} = \mathcal{P}(x_{adv}), \quad S_{adv} \in \mathbb{R}^{F_{mel} \times T_{frames}}$$
 
-### Adversarial Objective Formulation
-
-The overall objective is formulated as:
-$$\mathcal{L}_{total} = \mathcal{L}_{adv} + \lambda_{m} \mathcal{L}_{margin}^k + \lambda_{L2} \frac{\lVert \delta_z \rVert_2}{B}$$
-where $B$ is the batch size, and the $L_2$ regularization term explicitly bounds the continuous perturbation $\delta_z$ within the DAC latent space. The task-specific components, $\mathcal{L}_{adv}$ and $\mathcal{L}_{margin}^k$ (where $k \in \{cls, emb\}$), are defined according to the victim model's operational domain:
-
-- **Discrete Categorical Objective**:
-  $$\mathcal{L}_{margin}^{cls} = \max\Big(0, \max_{i \neq y_t} (\hat{y}_i) - \hat{y}_{y_t} + m_{cls}\Big)$$
-  where $m_{cls}$ is a constant scalar margin enforcing strict separation between the target logit and the next most likely class.
-
-- **Continuous Embedding Objective**:
-  $$\mathcal{L}_{margin}^{emb} = \max\Big(0, \cos(v_{adv}, v_{src}) - \cos(v_{adv}, v_{tgt}) + m_{emb}\Big)$$
-  where $m_{emb}$ dictates the requisite separation threshold in the cosine space.
-
 ---
 
 ## Repository Structure
