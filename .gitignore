@@ -1,0 +1,22 @@
+# Python caches and compiles
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyTorch checkpoints and weights
+*.pth
+*.pt
+*.checkpoint
+
+# Log files and outputs
+*.log
+dac_gan_urbansound8k_results/
+
+# Environments and OS-specific files
+.venv/
+venv/
+ENV/
+env/
+.DS_Store
+.vscode/
+.idea/

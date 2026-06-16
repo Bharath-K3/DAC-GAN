@@ -1,0 +1,8 @@
+torch==2.6.0+cu126
+torchaudio==2.6.0+cu126
+torchlibrosa==0.1.0
+descript-audio-codec==1.0.0
+numpy==1.26.0
+pandas==1.5.3
+soundfile==0.13.1
+tqdm==4.67.1
